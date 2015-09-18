@@ -18,6 +18,8 @@ File Encrypter is a simple data encrypter and decrypter application for desktops
 
 ## Download ##
 
+[https://github.com/frknikiz/file-encrypter/releases](https://github.com/frknikiz/file-encrypter/releases)
+
 
 ## License ##
 
