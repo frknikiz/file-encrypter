@@ -1,0 +1,79 @@
+<html lang="en" ng-app="StarterApp" ng-jq>
+<head>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="assets/dropzone.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <meta name="viewport" content="initial-scale=1" />
+    <style type="text/css">
+        .dz-progress{
+            background: rgba(50, 50, 50, 0.9)!important;
+            top: 100px !important;
+        }
+        #toolbar
+        {
+            -webkit-app-region: drag;
+            -webkit-user-select: none;
+        }
+        #toolbar button
+        {
+            -webkit-app-region: no-drag;
+        }
+    </style>
+</head>
+<body layout="column" ng-controller="AppCtrl">
+<md-toolbar id="toolbar" layout="row" layout-align="center center">
+
+    <md-button ng-class="isSelect(1)?'md-focused':'';" ng-click="tabSelect(1)">Encrypt</md-button>
+    <md-button ng-class="isSelect(2)?'md-focused':'';" ng-click="tabSelect(2)">Decrypt</md-button>
+    <md-button ng-click="closeWindow()" class="md-fab md-mini md-primary" style="background-color:#80CBC4;position: absolute;right: 20px;top:5px" aria-label="Use Android">
+        <md-icon md-svg-src="assets/close_icon.svg"></md-icon>
+    </md-button>
+    <md-button ng-click="downWindow()" class="md-fab md-mini md-primary" style="background-color:#80CBC4;position: absolute;right: 70px;top:5px" aria-label="Use Android">
+        <md-icon md-svg-src="assets/down.svg"></md-icon>
+    </md-button>
+</md-toolbar>
+
+<div ng-show="isSelect(1)" ng-controller="EncrptyCtrl" layout="row" flex layout-align="center start">
+    <div layout="column" flex="95" layout-align="center center">
+        <h3>Encrypt Files</h3>
+
+        <form style="width: 100%" action="#" class="dropzone" id="enc-dropzone">
+            <div class="fallback">
+                <input name="file" type="file" multiple/>
+            </div>
+        </form>
+        <md-input-container>
+            <label>Password</label>
+            <input ng-model="password" type="password">
+        </md-input-container>
+        <md-button type="submit" ng-disabled="!password" class="md-primary" ng-click="startConvert()">Start</md-button>
+    </div>
+</div>
+<div ng-show="isSelect(2)" ng-controller="DecrptyCtrl" layout="row" flex layout-align="center start">
+    <div layout="column" flex="95" layout-align="center center">
+        <h3>Decrypt Files</h3>
+
+        <form style="width: 100%" action="#" class="dropzone" id="dec-dropzone">
+            <div class="fallback">
+                <input name="file" type="file" multiple/>
+            </div>
+        </form>
+        <md-input-container>
+            <label>Password</label>
+            <input ng-model="password" type="password">
+        </md-input-container>
+        <md-button type="submit" ng-disabled="!password" class="md-primary" ng-click="startConvert()">Start</md-button>
+    </div>
+</div>
+
+<!-- Angular Material Dependencies -->
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+
+<script src="node_modules/angular-material/angular-material.min.js"></script>
+<script src="assets/dropzone.min.js"></script>
+<script src="assets/jquery-1.11.3.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
