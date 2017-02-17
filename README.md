@@ -11,7 +11,7 @@ File Encrypter is a simple data encrypter and decrypter application for desktops
 ## Build ##
 
     npm install
-## Libraries Used ##
+## Used Libraries ##
 
 
 - [file-encryptor](https://github.com/onmodulus/file-encryptor)
